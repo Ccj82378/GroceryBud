@@ -18,9 +18,10 @@ form.addEventListener('submit', addItem);
 clearBtn.addEventListener("click", clearItems);
 // load items
 window.addEventListener("DOMContentLoaded", setupItems);
+
 // ****** FUNCTIONS **********
 function addItem (e) {
-    e.preventDefault();
+    e.preventDefault(); // 取消預設功能
     const value = grocery.value;
    
     const id = new Date().getTime().toString();
@@ -100,6 +101,7 @@ function setBackToDefault () {
     editID = "";
     submitBtn.textContent = "submit";
 }
+
 // ****** LOCAL STORAGE **********
 function addToLocalStorage (id, value) {
     const grocery = {id, value};
@@ -142,6 +144,7 @@ function getLocalStorage () {
 // const oranges = JSON.parse(localStorage.getItem("orange"));
 // console.log(oranges);
 // localStorage.removeItem("oranges");
+
 // ****** SETUP ITEMS **********
 function setupItems () {
     let items =  getLocalStorage();
@@ -152,7 +155,6 @@ function setupItems () {
         container.classList.add("show-container");
     }
 }
-
 function creatListItem (id, value) {
     const element = document.createElement("article");
         // add class
